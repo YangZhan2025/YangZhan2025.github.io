@@ -1,6 +1,6 @@
 # 博士生个人学术主页模板 | PhD Student Academic Homepage Template
 
-一个现代、优雅的博士生个人学术主页模板，支持中英双语切换，采用现代极简主义设计风格。经过用户反馈优化，在功能性、美观性和用户体验方面都得到了显著提升。
+博士生个人学术主页模板，支持中英双语切换，采用现代极简主义设计风格。经过用户反馈优化，在功能性、美观性和用户体验方面都得到了显著提升。
 
 A modern, elegant personal academic homepage template for PhD students with bilingual support (Chinese/English) and modern minimalist design. Optimized based on user feedback for enhanced functionality, aesthetics, and user experience.
 
