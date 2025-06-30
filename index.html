@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    
-    <!-- 导航栏 -->
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -34,6 +33,9 @@
                 <button class="lang-toggle" id="langToggle">
                     <span class="lang-text">中 / EN</span>
                 </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
@@ -43,12 +45,9 @@
         </div>
     </nav>
 
-    <!-- 主要内容区域 -->
     <main class="main-content">
-        <!-- 首页 -->
         <section id="home" class="page-section active">
             <div class="container">
-                <!-- 个人简介区域 -->
                 <div class="hero-section">
                     <div class="hero-content">
                         <div class="hero-image">
@@ -58,8 +57,7 @@
                             <h1 class="hero-title" data-zh="张三" data-en="John Zhang">张三</h1>
                             <p class="hero-subtitle" data-zh="计算机科学博士生" data-en="PhD Student in Computer Science">计算机科学博士生</p>
                             <p class="hero-description" data-zh="我是一名专注于人工智能和机器学习的博士生，致力于推动计算机视觉和自然语言处理领域的前沿研究。我的研究兴趣包括深度学习、神经网络架构设计以及AI在实际应用中的落地实践。" data-en="I am a PhD student specializing in artificial intelligence and machine learning, dedicated to advancing cutting-edge research in computer vision and natural language processing. My research interests include deep learning, neural network architecture design, and practical applications of AI.">我是一名专注于人工智能和机器学习的博士生，致力于推动计算机视觉和自然语言处理领域的前沿研究。我的研究兴趣包括深度学习、神经网络架构设计以及AI在实际应用中的落地实践。</p>
-                            
-                            <!-- 联系方式 -->
+
                             <div class="contact-links">
                                 <a href="mailto:john.zhang@university.edu" class="contact-link" title="Email">
                                     <i class="fas fa-envelope"></i>
@@ -81,7 +79,6 @@
                     </div>
                 </div>
 
-                <!-- 教育背景 -->
                 <div class="education-section">
                     <h2 class="education-title" data-zh="教育背景" data-en="Education">教育背景</h2>
                     <div class="education-timeline">
@@ -104,7 +101,6 @@
                     </div>
                 </div>
 
-                <!-- 最新动态 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="最新动态" data-en="News">最新动态</h2>
                     <div class="news-container">
@@ -133,20 +129,17 @@
             </div>
         </section>
 
-        <!-- 研究页面 -->
         <section id="research" class="page-section">
             <div class="container">
-                <!-- 研究表述 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="研究表述" data-en="Research Statement">研究表述</h2>
                     <div class="research-statement">
                         <p data-zh="我的研究专注于人工智能和机器学习的前沿领域，特别是在计算机视觉和自然语言处理的交叉点上探索创新解决方案。我致力于开发能够理解和处理多模态信息的智能系统，推动AI技术在现实世界中的应用。" data-en="My research focuses on the cutting-edge fields of artificial intelligence and machine learning, particularly exploring innovative solutions at the intersection of computer vision and natural language processing. I am committed to developing intelligent systems that can understand and process multimodal information, advancing the application of AI technology in the real world.">我的研究专注于人工智能和机器学习的前沿领域，特别是在计算机视觉和自然语言处理的交叉点上探索创新解决方案。我致力于开发能够理解和处理多模态信息的智能系统，推动AI技术在现实世界中的应用。</p>
-                        
+
                         <p data-zh="在深度学习架构设计方面，我探索新颖的神经网络结构，以提高模型的效率和性能。我的工作涵盖了从基础理论研究到实际应用开发的全过程，包括算法优化、系统设计和实验验证。我相信，通过跨学科的合作和持续的创新，我们能够构建更加智能、可靠和可解释的AI系统。" data-en="In deep learning architecture design, I explore novel neural network structures to improve model efficiency and performance. My work spans the entire process from fundamental theoretical research to practical application development, including algorithm optimization, system design, and experimental validation. I believe that through interdisciplinary collaboration and continuous innovation, we can build more intelligent, reliable, and interpretable AI systems.">在深度学习架构设计方面，我探索新颖的神经网络结构，以提高模型的效率和性能。我的工作涵盖了从基础理论研究到实际应用开发的全过程，包括算法优化、系统设计和实验验证。我相信，通过跨学科的合作和持续的创新，我们能够构建更加智能、可靠和可解释的AI系统。</p>
                     </div>
                 </div>
 
-                <!-- 研究兴趣 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="研究兴趣" data-en="Research Interests">研究兴趣</h2>
                     <div class="research-interests">
@@ -161,7 +154,6 @@
                     </div>
                 </div>
 
-                <!-- 出版物 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="出版物" data-en="Publications">出版物</h2>
                     <div class="publications-list">
@@ -209,20 +201,17 @@
             </div>
         </section>
 
-        <!-- 更多关于我页面 -->
         <section id="about" class="page-section">
             <div class="container">
-                <!-- 学术理念 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="学术理念" data-en="Academic Philosophy">学术理念</h2>
                     <div class="philosophy-content">
                         <p data-zh="我坚信人工智能技术应该服务于人类社会的进步与发展。在我的研究中，我始终秉持着严谨的科学态度，追求理论创新与实际应用的完美结合。我认为优秀的研究不仅要在学术上有所突破，更要能够解决现实世界中的实际问题。" data-en="I firmly believe that artificial intelligence technology should serve the progress and development of human society. In my research, I always maintain a rigorous scientific attitude, pursuing the perfect combination of theoretical innovation and practical application. I believe that excellent research should not only achieve academic breakthroughs but also solve real-world problems.">我坚信人工智能技术应该服务于人类社会的进步与发展。在我的研究中，我始终秉持着严谨的科学态度，追求理论创新与实际应用的完美结合。我认为优秀的研究不仅要在学术上有所突破，更要能够解决现实世界中的实际问题。</p>
-                        
+
                         <p data-zh="作为一名年轻的研究者，我深知合作的重要性。我积极参与跨学科的研究项目，与来自不同背景的学者进行交流合作。我相信，通过开放的学术交流和多元化的思维碰撞，我们能够推动人工智能领域向更加广阔的方向发展。" data-en="As a young researcher, I deeply understand the importance of collaboration. I actively participate in interdisciplinary research projects and collaborate with scholars from different backgrounds. I believe that through open academic exchange and diverse thinking collisions, we can push the field of artificial intelligence towards broader development.">作为一名年轻的研究者，我深知合作的重要性。我积极参与跨学科的研究项目，与来自不同背景的学者进行交流合作。我相信，通过开放的学术交流和多元化的思维碰撞，我们能够推动人工智能领域向更加广阔的方向发展。</p>
                     </div>
                 </div>
 
-                <!-- 兴趣爱好 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="兴趣爱好" data-en="Hobbies & Interests">兴趣爱好</h2>
                     <div class="hobbies-container">
@@ -288,7 +277,6 @@
                     </div>
                 </div>
 
-                <!-- 简历下载 -->
                 <div class="section-block">
                     <h2 class="section-title" data-zh="简历下载" data-en="CV Download">简历下载</h2>
                     <div class="cv-download">
@@ -309,7 +297,6 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
             <p data-zh="© 2024 张三. 保留所有权利." data-en="© 2024 John Zhang. All rights reserved.">© 2024 张三. 保留所有权利.</p>
@@ -317,7 +304,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    
+
 </body>
 </html>
-
