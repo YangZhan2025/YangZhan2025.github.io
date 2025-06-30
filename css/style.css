@@ -887,22 +887,6 @@ body {
     background: rgba(45, 45, 45, 0.9);
   }
 }
-// 主题切换功能
-(function() {
-  const btn = document.getElementById('theme-toggle-btn');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    btn.innerText = theme === 'dark' ? '☀️' : '🌙';
-  }
-/* 针对英文内容的排版优化，可以给英文主容器加 class="en-content" */
-.en-content, .en {
-  letter-spacing: 0.05em; /* 字母间距 */
-  word-spacing: 0.1em;    /* 单词间距 */
-  text-align: left;
-  line-height: 1.6;
-  /* 如需更紧凑或更宽松可调整上面数值 */
-}
+
 
       
