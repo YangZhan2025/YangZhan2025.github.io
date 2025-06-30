@@ -18,29 +18,29 @@
   --light-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
   --light-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
   --light-shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.15);
-  --light-nav-bg: rgba(255, 255, 255, 0.95);
-  --light-block-bg: rgba(255, 255, 255, 0.8);
-  --light-block-hover-bg: rgba(255, 255, 255, 0.95);
+  --light-nav-bg: rgba(255, 255, 255, 0.85);
+  --light-block-bg: rgba(255, 255, 255, 0.7);
+  --light-block-hover-bg: rgba(255, 255, 255, 0.9);
   --light-news-hover-bg: rgba(52, 73, 94, 0.05);
 
-  /* 暗色主题颜色 */
-  --dark-bg: linear-gradient(135deg, #1a1a2e, #16213e);
-  --dark-primary-color: #e0fbfc;
-  --dark-secondary-color: #98c1d9;
-  --dark-accent-color: #3d5af1;
-  --dark-text-primary: #e0e1dd;
-  --dark-text-secondary: #aeb4c4;
-  --dark-text-light: #8d99ae;
-  --dark-white: #1e1e3f;
-  --dark-light-gray: #2b2d42;
-  --dark-border-color: #4a4e69;
+  /* Apple风格深色主题颜色 */
+  --dark-bg: #121212;
+  --dark-primary-color: #ffffff; /* 主要文本使用纯白以保证最高对比度 */
+  --dark-secondary-color: #a9a9b0; /* 次要文本 */
+  --dark-accent-color: #0A84FF;  /* Apple 蓝作为强调色 */
+  --dark-text-primary: #f5f5f7;
+  --dark-text-secondary: #a1a1a6;
+  --dark-text-light: #86868b;
+  --dark-white: #1d1d1f; /* 卡片背景色 */
+  --dark-light-gray: #2c2c2e; /* 悬浮时的卡片背景色 */
+  --dark-border-color: #38383a;
   --dark-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.2);
   --dark-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.3);
   --dark-shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --dark-nav-bg: rgba(22, 33, 62, 0.95);
-  --dark-block-bg: rgba(43, 45, 66, 0.8);
-  --dark-block-hover-bg: rgba(43, 45, 66, 0.95);
-  --dark-news-hover-bg: rgba(141, 153, 174, 0.1);
+  --dark-nav-bg: rgba(29, 29, 31, 0.85);
+  --dark-block-bg: rgba(29, 29, 31, 0.7);
+  --dark-block-hover-bg: #2c2c2e;
+  --dark-news-hover-bg: rgba(134, 134, 139, 0.1);
 
   /* 默认应用亮色主题 */
   --main-background: var(--light-bg);
@@ -138,7 +138,8 @@ body {
   left: 0;
   right: 0;
   background: var(--nav-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   transition: var(--transition-medium);
@@ -204,7 +205,7 @@ body {
 }
 
 .lang-toggle, .theme-toggle {
-  background: none;
+  background: transparent;
   border: 1px solid var(--border-color);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 6px;
@@ -216,9 +217,14 @@ body {
 
 .lang-toggle:hover, .theme-toggle:hover {
   background: var(--light-gray);
-  border-color: var(--primary-color);
+  border-color: var(--accent-color);
   color: var(--primary-color);
 }
+
+body.dark-mode .lang-toggle:hover, body.dark-mode .theme-toggle:hover {
+    color: var(--dark-primary-color);
+}
+
 
 .theme-toggle {
   padding: var(--spacing-xs);
@@ -299,11 +305,13 @@ body {
   border-radius: 12px;
   box-shadow: var(--shadow-medium);
   transition: var(--transition-medium);
+  filter: grayscale(20%);
 }
 
 .profile-photo:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: var(--shadow-heavy);
+  filter: grayscale(0%);
 }
 
 .hero-text {
@@ -356,13 +364,19 @@ body {
 
 .contact-link:hover {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--light-bg);
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
 }
 
+body.dark-mode .contact-link {
+    background: var(--dark-light-gray);
+}
+
+
 body.dark-mode .contact-link:hover {
-    color: var(--dark-bg);
+    background: var(--dark-accent-color);
+    color: var(--dark-primary-color);
 }
 
 
@@ -371,19 +385,27 @@ body.dark-mode .contact-link:hover {
 }
 
 /* 区块样式 */
-.section-block {
+.section-block, .education-section {
   background: var(--block-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-radius: 16px;
   padding: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
   box-shadow: var(--shadow-light);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease;
+  border: 1px solid transparent;
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
-body.dark-mode .section-block {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+body.light-mode .section-block, body.light-mode .education-section {
+    border-color: rgba(0,0,0,0.05);
+    background: rgba(255,255,255,0.7);
+}
+
+
+body.dark-mode .section-block, body.dark-mode .education-section {
+    border-color: rgba(255,255,255,0.1);
+    background: rgba(29, 29, 31, 0.7);
 }
 
 .section-title {
@@ -407,20 +429,6 @@ body.dark-mode .section-block {
   border-radius: 2px;
 }
 
-/* 教育背景 - 新的紧凑设计 */
-.education-section {
-  background: var(--block-bg);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-  box-shadow: var(--shadow-light);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-body.dark-mode .education-section {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 .education-title {
   font-family: var(--font-serif);
@@ -456,7 +464,7 @@ body.dark-mode .education-section {
   padding: var(--spacing-sm) var(--spacing-md);
   border-left: 2px solid var(--accent-color);
   background: var(--block-hover-bg);
-  border-radius: 6px;
+  border-radius: 8px;
   transition: var(--transition-fast);
 }
 
@@ -464,6 +472,11 @@ body.dark-mode .education-section {
   background: var(--light-gray);
   transform: translateX(2px);
 }
+
+body.dark-mode .education-entry {
+    background: var(--dark-white);
+}
+
 
 body.dark-mode .education-entry:hover {
     background: var(--dark-light-gray);
@@ -510,7 +523,6 @@ body.dark-mode .education-entry:hover {
 .research-statement p {
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
-  text-align: justify;
 }
 
 .research-statement p:last-child {
@@ -532,6 +544,11 @@ body.dark-mode .education-entry:hover {
   background: var(--light-gray);
   border-radius: 3px;
 }
+
+body.dark-mode .news-container::-webkit-scrollbar-track {
+    background: var(--dark-white);
+}
+
 
 .news-container::-webkit-scrollbar-thumb {
   background: var(--border-color);
@@ -593,18 +610,22 @@ body.dark-mode .education-entry:hover {
 
 .interest-tag:hover {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--light-bg);
   transform: translateY(-2px);
   box-shadow: var(--shadow-light);
 }
 
 body.dark-mode .interest-tag {
+    background-color: var(--dark-white);
     color: var(--dark-text-primary);
+    border-color: var(--dark-border-color);
 }
 
 
 body.dark-mode .interest-tag:hover {
-    color: var(--dark-bg);
+    background-color: var(--dark-accent-color);
+    color: var(--dark-primary-color);
+    border-color: var(--dark-accent-color);
 }
 
 
@@ -628,6 +649,11 @@ body.dark-mode .interest-tag:hover {
   box-shadow: var(--shadow-medium);
   transform: translateY(-2px);
 }
+
+body.dark-mode .publication-item {
+    background: var(--dark-white);
+}
+
 
 body.dark-mode .publication-item:hover {
     background: var(--dark-light-gray);
@@ -666,13 +692,15 @@ body.dark-mode .publication-item:hover {
 /* 学术理念, 兴趣爱好, 英文排版优化 */
 .philosophy-content p,
 .hobby-content p,
-.hero-description {
+.hero-description,
+.research-statement p {
   text-align: justify;
 }
 
 :lang(en) .philosophy-content p,
 :lang(en) .hobby-content p,
-:lang(en) .hero-description {
+:lang(en) .hero-description,
+:lang(en) .research-statement p {
   text-align: left;
 }
 
@@ -686,16 +714,11 @@ body.dark-mode .publication-item:hover {
 
 .hobby-card {
   background: var(--block-bg);
-  backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: var(--spacing-xl);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
   transition: var(--transition-medium);
   box-shadow: var(--shadow-light);
-}
-
-body.dark-mode .hobby-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hobby-card:hover {
@@ -761,7 +784,7 @@ body.dark-mode .hobby-card {
   gap: var(--spacing-xs);
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--light-bg);
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
@@ -770,7 +793,8 @@ body.dark-mode .hobby-card {
 }
 
 body.dark-mode .cv-button {
-    color: var(--dark-bg);
+    background: var(--dark-accent-color);
+    color: var(--dark-primary-color);
 }
 
 
@@ -780,6 +804,11 @@ body.dark-mode .cv-button {
   box-shadow: var(--shadow-medium);
 }
 
+body.dark-mode .cv-button:hover {
+    filter: brightness(1.1);
+}
+
+
 .cv-button i {
   font-size: 1rem;
 }
@@ -787,7 +816,8 @@ body.dark-mode .cv-button {
 /* 页脚 */
 .footer {
   background: var(--nav-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-top: 1px solid var(--border-color);
   padding: var(--spacing-lg) 0;
   text-align: center;
@@ -804,7 +834,8 @@ body.dark-mode .cv-button {
     width: 100%;
     height: calc(100vh - 70px);
     background: var(--nav-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -885,7 +916,7 @@ body.dark-mode .cv-button {
     justify-content: center;
   }
 
-  .section-block {
+  .section-block, .education-section {
     padding: var(--spacing-lg);
   }
 
@@ -910,7 +941,7 @@ body.dark-mode .cv-button {
     padding: 0 var(--spacing-sm);
   }
 
-  .section-block {
+  .section-block, .education-section {
     padding: var(--spacing-md);
   }
 
@@ -955,7 +986,7 @@ body.dark-mode .cv-button {
     background: white;
   }
 
-  .section-block {
+  .section-block, .education-section {
     background: white;
     box-shadow: none;
     border: 1px solid #ddd;
