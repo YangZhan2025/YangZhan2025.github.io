@@ -124,12 +124,6 @@ body {
   transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* 英文排版优化 */
-:lang(en) {
-  word-spacing: 0.05em;
-  letter-spacing: 0.01em;
-}
-
 /* 容器 */
 .container {
   max-width: 1200px;
@@ -367,6 +361,11 @@ body {
   box-shadow: var(--shadow-medium);
 }
 
+body.dark-mode .contact-link:hover {
+    color: var(--dark-bg);
+}
+
+
 .contact-link i {
   font-size: 1.2rem;
 }
@@ -410,13 +409,17 @@ body.dark-mode .section-block {
 
 /* 教育背景 - 新的紧凑设计 */
 .education-section {
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--block-bg);
   backdrop-filter: blur(8px);
   border-radius: 12px;
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
   box-shadow: var(--shadow-light);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .education-section {
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .education-title {
@@ -452,15 +455,20 @@ body.dark-mode .section-block {
   gap: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
   border-left: 2px solid var(--accent-color);
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--block-hover-bg);
   border-radius: 6px;
   transition: var(--transition-fast);
 }
 
 .education-entry:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--light-gray);
   transform: translateX(2px);
 }
+
+body.dark-mode .education-entry:hover {
+    background: var(--dark-light-gray);
+}
+
 
 .education-year {
   font-size: 0.9rem;
@@ -573,7 +581,7 @@ body.dark-mode .section-block {
 
 .interest-tag {
   background: var(--light-gray);
-  color: var(--primary-color);
+  color: var(--text-primary);
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: 20px;
   font-size: 0.9rem;
@@ -590,8 +598,13 @@ body.dark-mode .section-block {
   box-shadow: var(--shadow-light);
 }
 
-body.dark-mode .interest-tag:hover {
+body.dark-mode .interest-tag {
     color: var(--dark-text-primary);
+}
+
+
+body.dark-mode .interest-tag:hover {
+    color: var(--dark-bg);
 }
 
 
@@ -604,17 +617,22 @@ body.dark-mode .interest-tag:hover {
 
 .publication-item {
   padding: var(--spacing-lg);
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--block-hover-bg);
   border-radius: 12px;
   border: 1px solid var(--border-color);
   transition: var(--transition-fast);
 }
 
 .publication-item:hover {
-  background: var(--block-hover-bg);
+  background: var(--light-gray);
   box-shadow: var(--shadow-medium);
   transform: translateY(-2px);
 }
+
+body.dark-mode .publication-item:hover {
+    background: var(--dark-light-gray);
+}
+
 
 .publication-title {
   margin-bottom: var(--spacing-sm);
@@ -645,14 +663,19 @@ body.dark-mode .interest-tag:hover {
   font-size: 0.9rem;
 }
 
-/* 学术理念 */
-.philosophy-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
+/* 学术理念, 兴趣爱好, 英文排版优化 */
+.philosophy-content p,
+.hobby-content p,
+.hero-description {
   text-align: justify;
 }
+
+:lang(en) .philosophy-content p,
+:lang(en) .hobby-content p,
+:lang(en) .hero-description {
+  text-align: left;
+}
+
 
 /* 兴趣爱好 - 新的卡片式设计 */
 .hobbies-container {
@@ -711,7 +734,6 @@ body.dark-mode .hobby-card {
 .hobby-content p {
   color: var(--text-primary);
   font-size: 1rem;
-  text-align: justify;
   margin: 0;
 }
 
@@ -748,7 +770,7 @@ body.dark-mode .hobby-card {
 }
 
 body.dark-mode .cv-button {
-    color: var(--dark-text-primary);
+    color: var(--dark-bg);
 }
 
 
@@ -873,6 +895,9 @@ body.dark-mode .cv-button {
 }
 
 @media (max-width: 480px) {
+    .nav-actions {
+        gap: var(--spacing-sm);
+    }
   .hero-title {
     font-size: 2rem;
   }
@@ -897,6 +922,11 @@ body.dark-mode .cv-button {
   .news-date {
     width: auto;
   }
+  
+  .hobbies-container {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 /* 打印样式 */
