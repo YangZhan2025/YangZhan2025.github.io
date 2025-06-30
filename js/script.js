@@ -1,5 +1,5 @@
 // 全局变量
-let currentLanguage = 'zh';
+let currentLanguage = 'en';
 let currentPage = 'home';
 
 // DOM 元素
