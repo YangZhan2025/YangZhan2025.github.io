@@ -23,24 +23,24 @@
   --light-block-hover-bg: rgba(255, 255, 255, 0.9);
   --light-news-hover-bg: rgba(52, 73, 94, 0.05);
 
-  /* Apple风格深色主题颜色 */
-  --dark-bg: #121212;
-  --dark-primary-color: #ffffff; /* 主要文本使用纯白以保证最高对比度 */
-  --dark-secondary-color: #a9a9b0; /* 次要文本 */
-  --dark-accent-color: #0A84FF;  /* Apple 蓝作为强调色 */
-  --dark-text-primary: #f5f5f7;
-  --dark-text-secondary: #a1a1a6;
-  --dark-text-light: #86868b;
-  --dark-white: #1d1d1f; /* 卡片背景色 */
-  --dark-light-gray: #2c2c2e; /* 悬浮时的卡片背景色 */
-  --dark-border-color: #38383a;
-  --dark-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.2);
-  --dark-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --dark-shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --dark-nav-bg: rgba(29, 29, 31, 0.85);
-  --dark-block-bg: rgba(29, 29, 31, 0.7);
-  --dark-block-hover-bg: #2c2c2e;
-  --dark-news-hover-bg: rgba(134, 134, 139, 0.1);
+  /* "夜光画室" (The Night Studio) 深色主题 - 灵感源自伦勃朗 */
+  --dark-bg: #1a1817; /* 温暖的、深邃的炭黑色背景 */
+  --dark-primary-color: #f2e9e4; /* 带有亚麻质感的柔和米白色 (主要文本/标题) */
+  --dark-secondary-color: #c9ada7; /* 带有灰调的玫瑰色 (次要文本) */
+  --dark-accent-color: #c59956;  /* 低饱和度的古典金色 (链接/强调色) */
+  --dark-text-primary: #e6ddd8;
+  --dark-text-secondary: #9a8c98;
+  --dark-text-light: #6d6265;
+  --dark-white: #221f1e; /* 卡片背景色 */
+  --dark-light-gray: #312c2a; /* 悬浮时的卡片背景色 */
+  --dark-border-color: #4a4441;
+  --dark-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --dark-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --dark-shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --dark-nav-bg: rgba(34, 31, 30, 0.85); /* 导航栏/页脚背景 */
+  --dark-block-bg: rgba(34, 31, 30, 0.7); /* 区块背景 */
+  --dark-block-hover-bg: #312c2a;
+  --dark-news-hover-bg: rgba(74, 68, 65, 0.2);
 
   /* 默认应用亮色主题 */
   --main-background: var(--light-bg);
@@ -405,7 +405,7 @@ body.light-mode .section-block, body.light-mode .education-section {
 
 body.dark-mode .section-block, body.dark-mode .education-section {
     border-color: rgba(255,255,255,0.1);
-    background: rgba(29, 29, 31, 0.7);
+    background: rgba(34, 31, 30, 0.7);
 }
 
 .section-title {
@@ -624,7 +624,7 @@ body.dark-mode .interest-tag {
 
 body.dark-mode .interest-tag:hover {
     background-color: var(--dark-accent-color);
-    color: var(--dark-primary-color);
+    color: #fff;
     border-color: var(--dark-accent-color);
 }
 
@@ -794,7 +794,7 @@ body.dark-mode .publication-item:hover {
 
 body.dark-mode .cv-button {
     background: var(--dark-accent-color);
-    color: var(--dark-primary-color);
+    color: #fff;
 }
 
 
