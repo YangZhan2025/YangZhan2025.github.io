@@ -1,7 +1,10 @@
-/* --- "月光石板" (Moonlit Slate) 主题 ---
-   设计理念: 模拟月光洒在现代美术馆深色石材地面上的情景，
-   营造静谧、深邃且富有高级艺术感的视觉体验。
-*/
+/* ---
+   主题设计方案
+   亮色: 默认主题
+   深色: "水墨与赤铜" (Ink Wash & Bronze) - 最终版
+   设计理念: 融合现代东方极简主义与奢侈品设计的质感，
+   营造静谧、内敛、沉稳且极其高级的艺术格调。
+--- */
 
 :root {
   /* 亮色主题颜色 */
@@ -12,7 +15,7 @@
   --light-text-primary: #2c3e50;
   --light-text-secondary: #7f8c8d;
   --light-text-light: #95a5a6;
-  --light-white: #ffffff;
+  --light-white: #ffffff; /* 用于亮色模式下按钮文字，确保最高对比度 */
   --light-light-gray: #f8f9fa;
   --light-border-color: #e9ecef;
   --light-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -23,24 +26,24 @@
   --light-block-hover-bg: rgba(255, 255, 255, 0.9);
   --light-news-hover-bg: rgba(52, 73, 94, 0.05);
 
-  /* "月光石板" (Moonlit Slate) 深色主题配色 */
-  --dark-bg: #1D2025;             /* 午夜灰 (主背景) */
-  --dark-primary-color: #EAECEF;   /* 月光白 (主文字/标题) */
-  --dark-secondary-color: #8892A0; /* 晨雾灰 (次要文本) */
-  --dark-accent-color: #5DA9E9;    /* 天青蓝 (链接/强调色) */
-  --dark-text-primary: #EAECEF;
-  --dark-text-secondary: #8892A0;
-  --dark-text-light: #6a737d;
-  --dark-white: #272B33;           /* 深空灰 (卡片背景色) */
-  --dark-light-gray: #333842;      /* 悬浮时的卡片背景色 */
-  --dark-border-color: #444c56;
+  /* "水墨与赤铜" (Ink Wash & Bronze) 深色主题配色 */
+  --dark-bg: #212121;               /* 墨色 (主背景) */
+  --dark-primary-color: #E0DCD1;     /* 宣纸白 (主文字/标题) */
+  --dark-secondary-color: #7D7A73;   /* 烟灰色 (次要文本) */
+  --dark-accent-color: #C09553;      /* 赤铜色 (链接/强调色) */
+  --dark-text-primary: #E0DCD1;
+  --dark-text-secondary: #7D7A73;
+  --dark-text-light: #5a5752;
+  --dark-white: #2D2D2D;             /* 炭灰色 (卡片背景色) */
+  --dark-light-gray: #3a3a3a;        /* 悬浮时的卡片背景色 */
+  --dark-border-color: #424242;
   --dark-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.3);
   --dark-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.4);
   --dark-shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.5);
-  --dark-nav-bg: rgba(29, 32, 37, 0.85); /* 导航栏/页脚背景 */
-  --dark-block-bg: rgba(39, 43, 51, 0.7); /* 区块背景 */
-  --dark-block-hover-bg: #333842;
-  --dark-news-hover-bg: rgba(88, 101, 116, 0.1);
+  --dark-nav-bg: rgba(33, 33, 33, 0.85); /* 导航栏/页脚背景 */
+  --dark-block-bg: rgba(45, 45, 45, 0.7); /* 区块背景 */
+  --dark-block-hover-bg: #3a3a3a;
+  --dark-news-hover-bg: rgba(125, 122, 115, 0.1);
 
   /* 默认应用亮色主题 */
   --main-background: var(--light-bg);
@@ -364,7 +367,7 @@ body.dark-mode .lang-toggle:hover, body.dark-mode .theme-toggle:hover {
 
 .contact-link:hover {
   background: var(--primary-color);
-  color: var(--light-bg);
+  color: var(--light-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
 }
@@ -405,7 +408,7 @@ body.light-mode .section-block, body.light-mode .education-section {
 
 body.dark-mode .section-block, body.dark-mode .education-section {
     border-color: rgba(255,255,255,0.1);
-    background: rgba(39, 43, 51, 0.7);
+    background: rgba(45, 45, 45, 0.7);
 }
 
 .section-title {
@@ -610,7 +613,7 @@ body.dark-mode .news-container::-webkit-scrollbar-track {
 
 .interest-tag:hover {
   background: var(--primary-color);
-  color: var(--light-bg);
+  color: var(--light-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-light);
 }
@@ -624,7 +627,7 @@ body.dark-mode .interest-tag {
 
 body.dark-mode .interest-tag:hover {
     background-color: var(--dark-accent-color);
-    color: var(--dark-primary-color);
+    color: var(--dark-bg);
     border-color: var(--dark-accent-color);
 }
 
@@ -784,7 +787,7 @@ body.dark-mode .publication-item:hover {
   gap: var(--spacing-xs);
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--primary-color);
-  color: var(--light-bg);
+  color: var(--light-white); /* 修复：亮色模式下按钮文字强制为白色 */
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
@@ -794,7 +797,7 @@ body.dark-mode .publication-item:hover {
 
 body.dark-mode .cv-button {
     background: var(--dark-accent-color);
-    color: var(--dark-primary-color);
+    color: var(--dark-bg);
 }
 
 
