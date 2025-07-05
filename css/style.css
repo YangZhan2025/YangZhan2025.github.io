@@ -462,7 +462,7 @@ body.dark-mode .section-block, body.dark-mode .education-section {
 
 .education-entry {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 160px 1fr; /* */
   gap: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
   border-left: 2px solid var(--accent-color);
@@ -494,7 +494,8 @@ body.dark-mode .education-entry:hover {
   align-items: center;
 }
 
-.education-details h3 {
+.education-school {
+  display: block;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -502,12 +503,11 @@ body.dark-mode .education-entry:hover {
   line-height: 1.3;
 }
 
-.education-school {
-  display: block;
+.education-degree {
   font-size: 0.95rem;
   color: var(--primary-color);
   font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .education-extra {
