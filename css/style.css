@@ -515,7 +515,7 @@ body.dark-mode .education-entry:hover {
   font-size: 0.9rem;
   font-style: normal;
   color: var(--primary-color);
-  margin-top: 0px;
+  margin-bottom: var(--spacing-xs);
 }
 
 
@@ -1072,7 +1072,7 @@ body.dark-mode .cv-download p {
 
 :lang(zh-CN) .education-extra {
     font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
-    font-size: 1.15rem; 
+    font-size: 1.1rem; 
 }
 
 /* 将正文描述段落设置为楷体，并增大字号 */
