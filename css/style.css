@@ -499,31 +499,24 @@ body.dark-mode .education-entry:hover {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.4; /* 统一行高 */
-  margin-bottom: 0; /* 移除旧间距 */
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.3;
 }
 
 .education-degree {
   font-size: 0.95rem;
   color: var(--primary-color);
   font-weight: 500;
-  line-height: 1.4; /* 统一行高 */
-  margin-bottom: 0; /* 移除旧间距 */
+  margin-bottom: var(--spacing-xs);
 }
 
-.education-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem; /* 统一控制所有行之间的间距 */
-}
 
 .education-extra {
   display: block;
   font-size: 0.9rem;
   font-style: normal;
   color: var(--primary-color);
-  line-height: 1.4; /* 统一行高 */
-  margin-top: 0; /* 移除旧间距 */
+  margin-bottom: var(--spacing-xs);
 }
 
 
