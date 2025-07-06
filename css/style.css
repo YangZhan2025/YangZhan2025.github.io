@@ -1073,7 +1073,10 @@ body.dark-mode .hero-subtitle {
 :lang(zh-CN) .hero-title,
 :lang(zh-CN) .hero-subtitle {
      font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-serif);
-
+}
+:lang(zh-CN) .hero-subtitle {
+     font-size: 1.35rem; 
+}
 
 :lang(zh-CN) .education-extra {
     font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
