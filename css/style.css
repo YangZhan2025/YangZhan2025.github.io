@@ -513,9 +513,9 @@ body.dark-mode .education-entry:hover {
 /* --- 导师信息样式优化 --- */
 .education-extra {
   display: block;
-  font-size: 0.9rem; /* 稍微增大字号 */
-  font-style: normal; /* 去掉斜体，更正式 */
-  color: var(--primary-color); /* 保持次要颜色，不喧宾夺主 */
+  font-size: 0.9rem; 
+  font-style: normal; 
+  color: var(--primary-color); 
   margin-top: 4px; /* 与上方内容增加一点间距 */
 }
 
