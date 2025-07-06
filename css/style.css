@@ -340,7 +340,7 @@ body.dark-mode .lang-toggle:hover, body.dark-mode .theme-toggle:hover {
 .hero-description {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: var(--text-primary); /* 修改：将灰色改为主要文字颜色 */
   margin-bottom: var(--spacing-lg);
 }
 
@@ -1061,14 +1061,24 @@ body.dark-mode .cv-download p {
 /* 深色模式下有链接的文字，颜色会由上面的 a 标签样式接管，无需额外设置 */
 
 
-/* 3. 亮色模式下，恢复中文简介的默认颜色 */
-/* (通过删除之前的特定代码实现，此部分无需添加新代码) */
+/* 3. 中文模式下楷体及字号调整 */
 
+/* 将包含“杨展”的标题设置为楷体 */
+:lang(zh-CN) .nav-logo,
+:lang(zh-CN) .hero-title {
+     font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-serif);
+}
 
-/* 4. 中文正文段落楷体设置 (精确版) */
+/* 将导师信息设置为楷体 */
+:lang(zh-CN) .education-extra {
+    font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
+}
+
+/* 将正文描述段落设置为楷体，并增大字号 */
 :lang(zh-CN) .hero-description,
 :lang(zh-CN) .research-statement p,
 :lang(zh-CN) .philosophy-content p,
 :lang(zh-CN) .hobby-content p {
   font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
+  font-size: 1.15rem; /* 增大字号，使其更易读 */
 }
