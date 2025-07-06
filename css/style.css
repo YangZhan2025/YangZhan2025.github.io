@@ -515,7 +515,7 @@ body.dark-mode .education-entry:hover {
   font-size: 0.9rem;
   font-style: normal;
   color: var(--primary-color);
-  margin-top: 4px;
+  margin-top: 0px;
 }
 
 
@@ -1069,10 +1069,10 @@ body.dark-mode .cv-download p {
      font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-serif);
 }
 
-/* 将导师信息设置为楷体并调整字号 */
+
 :lang(zh-CN) .education-extra {
     font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
-    font-size: 1.05rem; /* 修改：增大导师信息字号 */
+    font-size: 1.15rem; 
 }
 
 /* 将正文描述段落设置为楷体，并增大字号 */
@@ -1081,5 +1081,5 @@ body.dark-mode .cv-download p {
 :lang(zh-CN) .philosophy-content p,
 :lang(zh-CN) .hobby-content p {
   font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
-  font-size: 1.15rem; /* 增大字号，使其更易读 */
+  font-size: 1.25rem; /* 增大字号，使其更易读 */
 }
