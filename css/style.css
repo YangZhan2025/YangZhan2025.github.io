@@ -510,11 +510,35 @@ body.dark-mode .education-entry:hover {
   margin-bottom: var(--spacing-xs);
 }
 
+/* --- 导师信息样式优化 --- */
 .education-extra {
   display: block;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-style: italic;
+  font-size: 0.9rem; /* 稍微增大字号 */
+  font-style: normal; /* 去掉斜体，更正式 */
+  color: var(--text-secondary); /* 保持次要颜色，不喧宾夺主 */
+  margin-top: 4px; /* 与上方内容增加一点间距 */
+}
+
+/* 导师姓名链接的样式 */
+.education-extra a {
+  color: var(--secondary-color); /* 设置一个清晰的颜色 */
+  font-weight: 500; /* 字体稍微加重 */
+  text-decoration: none; /* 去掉下划线 */
+  transition: var(--transition-fast);
+}
+
+.education-extra a:hover {
+  color: var(--accent-color);
+  text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+/* 针对深色模式的优化 */
+body.dark-mode .education-extra a {
+    color: #a7b3c2; 
+}
+
+body.dark-mode .education-extra a:hover {
+    color: var(--dark-accent-color);
 }
 
 /* 研究表述 */
@@ -1013,4 +1037,37 @@ body.dark-mode .cv-button:hover {
     --text-secondary: #333333;
     --border-color: #000000;
   }
+}
+
+/* --- 中文个人简介颜色优化 --- */
+:lang(zh-CN) .hero-description {
+  /* 将简介段落的文字颜色调整为更深的主色，提升可读性 */
+  color: var(--text-primary);
+  opacity: 0.85; /* 使用透明度来使其与标题有细微区别 */
+}
+
+:lang(zh-CN) .hero-description a {
+  /* 为简介中的链接设置一个更和谐的颜色 */
+  color: #2c5d63; /* 使用一个沉稳的蓝绿色 */
+  font-weight: 600; /* 稍微加粗 */
+  text-decoration: none; /* 去掉下划线，让其更融入文本 */
+  border-bottom: 1px solid rgba(44, 93, 99, 0.4); /* 用底边框代替下划线，更雅致 */
+  transition: var(--transition-fast);
+}
+
+:lang(zh-CN) .hero-description a:hover {
+  /* 鼠标悬停时改变颜色和底边框 */
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+/* 针对深色模式的优化 */
+body.dark-mode:lang(zh-CN) .hero-description a {
+    color: #8ab4f8; /* 深色模式下使用更亮的蓝色 */
+    border-bottom-color: rgba(138, 180, 248, 0.5);
+}
+
+body.dark-mode:lang(zh-CN) .hero-description a:hover {
+    color: var(--dark-accent-color);
+    border-bottom-color: var(--dark-accent-color);
 }
