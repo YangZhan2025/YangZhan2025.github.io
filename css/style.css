@@ -515,7 +515,7 @@ body.dark-mode .education-entry:hover {
   display: block;
   font-size: 0.9rem; /* 稍微增大字号 */
   font-style: normal; /* 去掉斜体，更正式 */
-  color: var(--text-secondary); /* 保持次要颜色，不喧宾夺主 */
+  color: var(--primary-color); /* 保持次要颜色，不喧宾夺主 */
   margin-top: 4px; /* 与上方内容增加一点间距 */
 }
 
@@ -1039,35 +1039,33 @@ body.dark-mode .cv-button:hover {
   }
 }
 
-/* --- 中文个人简介颜色优化 --- */
+/* --- 个人简介样式最终优化 (紫色链接) --- */
 :lang(zh-CN) .hero-description {
-  /* 将简介段落的文字颜色调整为更深的主色，提升可读性 */
   color: var(--text-primary);
-  opacity: 0.85; /* 使用透明度来使其与标题有细微区别 */
+  opacity: 0.85;
 }
 
-:lang(zh-CN) .hero-description a {
-  /* 为简介中的链接设置一个更和谐的颜色 */
-  color: #2c5d63; /* 使用一个沉稳的蓝绿色 */
-  font-weight: 600; /* 稍微加粗 */
-  text-decoration: none; /* 去掉下划线，让其更融入文本 */
-  border-bottom: 1px solid rgba(44, 93, 99, 0.4); /* 用底边框代替下划线，更雅致 */
+/* 统一设置简介中链接的样式，不分语言 */
+.hero-description a {
+  color: #6f42c1; /* 亮色模式下的紫色 */
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(111, 66, 193, 0.4);
   transition: var(--transition-fast);
 }
 
-:lang(zh-CN) .hero-description a:hover {
-  /* 鼠标悬停时改变颜色和底边框 */
-  color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
+.hero-description a:hover {
+  color: #563d7c; /* 鼠标悬停时使用更深的紫色 */
+  border-bottom-color: #563d7c;
 }
 
-/* 针对深色模式的优化 */
-body.dark-mode:lang(zh-CN) .hero-description a {
-    color: #8ab4f8; /* 深色模式下使用更亮的蓝色 */
-    border-bottom-color: rgba(138, 180, 248, 0.5);
+/* 深色模式下的紫色链接 */
+body.dark-mode .hero-description a {
+  color: #ad8cfa; /* 深色模式下使用更亮的紫色 */
+  border-bottom-color: rgba(173, 140, 250, 0.5);
 }
 
-body.dark-mode:lang(zh-CN) .hero-description a:hover {
-    color: var(--dark-accent-color);
-    border-bottom-color: var(--dark-accent-color);
+body.dark-mode .hero-description a:hover {
+  color: #c7b3fa;
+  border-bottom-color: #c7b3fa;
 }
