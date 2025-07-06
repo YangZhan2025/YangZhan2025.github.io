@@ -1058,16 +1058,21 @@ body.dark-mode .cv-download p {
   opacity: 1; /* 确保没有透明度影响 */
 }
 
+/* 深色模式下副标题使用艺术感赤铜色 */
+body.dark-mode .hero-subtitle {
+    color: var(--dark-accent-color);
+}
+
 /* 深色模式下有链接的文字，颜色会由上面的 a 标签样式接管，无需额外设置 */
 
 
 /* 3. 中文模式下楷体及字号调整 */
 
-/* 将包含“杨展”的标题设置为楷体 */
+/* 将标题、副标题设置为楷体 */
 :lang(zh-CN) .nav-logo,
-:lang(zh-CN) .hero-title {
+:lang(zh-CN) .hero-title,
+:lang(zh-CN) .hero-subtitle {
      font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-serif);
-}
 
 
 :lang(zh-CN) .education-extra {
