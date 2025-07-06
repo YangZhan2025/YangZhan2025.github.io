@@ -1077,7 +1077,7 @@ body.dark-mode .hero-subtitle {
 
 :lang(zh-CN) .education-extra {
     font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
-    font-size: 1.1rem; 
+    font-size: 1.05rem; 
 }
 
 /* 将正文描述段落设置为楷体，并增大字号 */
