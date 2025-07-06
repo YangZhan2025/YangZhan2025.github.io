@@ -462,7 +462,7 @@ body.dark-mode .section-block, body.dark-mode .education-section {
 
 .education-entry {
   display: grid;
-  grid-template-columns: 160px 1fr; /* */
+  grid-template-columns: 160px 1fr;
   gap: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
   border-left: 2px solid var(--accent-color);
@@ -510,36 +510,14 @@ body.dark-mode .education-entry:hover {
   margin-bottom: var(--spacing-xs);
 }
 
-/* --- 导师信息样式优化 --- */
 .education-extra {
   display: block;
-  font-size: 0.9rem; 
-  font-style: normal; 
-  color: var(--primary-color); 
-  margin-top: 4px; /* 与上方内容增加一点间距 */
+  font-size: 0.9rem;
+  font-style: normal;
+  color: var(--primary-color);
+  margin-top: 4px;
 }
 
-/* 导师姓名链接的样式 */
-.education-extra a {
-  color: var(--secondary-color); /* 设置一个清晰的颜色 */
-  font-weight: 500; /* 字体稍微加重 */
-  text-decoration: none; /* 去掉下划线 */
-  transition: var(--transition-fast);
-}
-
-.education-extra a:hover {
-  color: var(--accent-color);
-  text-decoration: underline; /* 鼠标悬停时显示下划线 */
-}
-
-/* 针对深色模式的优化 */
-body.dark-mode .education-extra a {
-    color: #a7b3c2; 
-}
-
-body.dark-mode .education-extra a:hover {
-    color: var(--dark-accent-color);
-}
 
 /* 研究表述 */
 .research-statement {
@@ -1039,33 +1017,58 @@ body.dark-mode .cv-button:hover {
   }
 }
 
-/* --- 个人简介样式最终优化 (紫色链接) --- */
-:lang(zh-CN) .hero-description {
-  color: var(--text-primary);
-  opacity: 0.85;
-}
 
-/* 统一设置简介中链接的样式，不分语言 */
-.hero-description a {
-  color: #6f42c1; /* 亮色模式下的紫色 */
-  font-weight: 600;
+/* --- 最终全局样式统一优化 --- */
+
+/* 1. 全局链接颜色统一 */
+
+/* 亮色模式下：所有链接统一为蓝色 */
+a {
+  color: #007bff; /* 导师链接悬停时的蓝色 */
   text-decoration: none;
-  border-bottom: 1px solid rgba(111, 66, 193, 0.4);
   transition: var(--transition-fast);
 }
-
-.hero-description a:hover {
-  color: #563d7c; /* 鼠标悬停时使用更深的紫色 */
-  border-bottom-color: #563d7c;
+a:hover {
+  color: #0056b3; /* 悬停时使用更深的蓝色 */
+  text-decoration: underline;
 }
 
-/* 深色模式下的紫色链接 */
-body.dark-mode .hero-description a {
-  color: #ad8cfa; /* 深色模式下使用更亮的紫色 */
-  border-bottom-color: rgba(173, 140, 250, 0.5);
+/* 深色模式下：所有链接统一为浅蓝色 */
+body.dark-mode a {
+  color: #a7b3c2; /* 导师链接的浅蓝色 */
+}
+body.dark-mode a:hover {
+  color: #cad4e0; /* 悬停时使用更亮的浅蓝色 */
 }
 
-body.dark-mode .hero-description a:hover {
-  color: #c7b3fa;
-  border-bottom-color: #c7b3fa;
+
+/* 2. 深色模式下，统一所有文字颜色 */
+body.dark-mode,
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-description,
+body.dark-mode .education-degree,
+body.dark-mode .education-extra,
+body.dark-mode .news-content,
+body.dark-mode .publication-authors,
+body.dark-mode .publication-venue,
+body.dark-mode .philosophy-content p,
+body.dark-mode .hobby-content p,
+body.dark-mode .cv-download p {
+  color: var(--dark-primary-color); /* 统一为主要文字颜色 (宣纸白) */
+  opacity: 1; /* 确保没有透明度影响 */
+}
+
+/* 深色模式下有链接的文字，颜色会由上面的 a 标签样式接管，无需额外设置 */
+
+
+/* 3. 亮色模式下，恢复中文简介的默认颜色 */
+/* (通过删除之前的特定代码实现，此部分无需添加新代码) */
+
+
+/* 4. 中文正文段落楷体设置 (精确版) */
+:lang(zh-CN) .hero-description,
+:lang(zh-CN) .research-statement p,
+:lang(zh-CN) .philosophy-content p,
+:lang(zh-CN) .hobby-content p {
+  font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', var(--font-sans);
 }
