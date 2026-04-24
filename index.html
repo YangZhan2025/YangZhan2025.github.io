@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-zh="杨展 - 博士生个人主页" data-en="Zhan Yang - PhD Student Personal Homepage">杨展 - 博士生个人主页</title>
+    <link rel="icon" href="assets/images/profile-photo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -30,11 +31,11 @@
                 </li>
             </ul>
             <div class="nav-actions">
-                <button class="lang-toggle" id="langToggle">
-                    <span class="lang-text">中 / EN</span>
+                <button class="music-toggle" id="musicToggle" type="button" aria-label="Music unavailable" title="Music unavailable" disabled>
+                    <i class="fas fa-music" aria-hidden="true"></i>
                 </button>
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN / 中</span>
                 </button>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -44,18 +45,27 @@
             </div>
         </div>
     </nav>
+    <audio id="siteAudio" preload="metadata"></audio>
 
     <main class="main-content">
         <section id="home" class="page-section active">
             <div class="container">
+                <div class="home-forest-panorama" aria-hidden="true">
+                    <div class="home-forest-panorama__frame">
+                        <img src="assets/images/home-bodhi-tree.jpg" alt="" class="home-forest-panorama__image">
+                        <div class="home-forest-panorama__mist"></div>
+                        <div class="home-forest-panorama__light"></div>
+                        <div class="home-forest-panorama__fade"></div>
+                    </div>
+                </div>
                 <div class="hero-section">
                     <div class="hero-content">
                         <div class="hero-image">
-                            <img src="assets/images/profile-photo.jpg" alt="Profile Photo" class="profile-photo">
+                            <img src="assets/images/profile-photo.png" alt="Profile Photo" class="profile-photo">
                         </div>
                         <div class="hero-text">
                             <h1 class="hero-title" data-zh="杨展" data-en="Hi. I'm Zhan Yang.">杨展</h1>
-                            <p class="hero-subtitle" data-zh="道路与铁道工程博士研究生" data-en="PhD Student in Raod and Railway Engineering">西南交通大学博士研究生</p>
+                            <p class="hero-subtitle" data-zh="道路与铁道工程博士研究生" data-en="PhD Student in Road and Railway Engineering">西南交通大学博士研究生</p>
                             <p class="hero-description" 
                                data-zh="大家好，我是杨展，<a href='https://www.swjtu.edu.cn/' target='_blank'>西南交通大学</a>博士研究生，“轨道工程见习医师”，专注于铁路轨道结构疑难杂症的诊治。
                                        
@@ -83,7 +93,7 @@
                                 <a href="https://www.linkedin.com/in/%E5%B1%95-%E6%9D%A8-118432318/" class="contact-link" title="LinkedIn" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
-                                <a href="assets/images/wechat-qr.png" class="contact-link" title="WeChat" target="_blank">
+                                <a href="assets/images/wechat-qr.jpg" class="contact-link" title="WeChat" target="_blank">
                                     <i class="fab fa-weixin"></i>
                                 </a>
                             </div>
@@ -153,70 +163,51 @@
 
         <section id="research" class="page-section">
             <div class="container">
-                <div class="section-block">
+                <div class="section-block research-intro-block">
+                    <div class="research-signal-stage" aria-hidden="true">
+                        <div class="research-signal-aura research-signal-aura--left"></div>
+                        <div class="research-signal-aura research-signal-aura--right"></div>
+                        <div class="research-signal-aura research-signal-aura--center"></div>
+                        <canvas id="researchWaveCanvas" class="research-wave-canvas"></canvas>
+                    </div>
+
                     <h2 class="section-title" data-zh="研究表述" data-en="Research Statement">研究表述</h2>
                     <div class="research-statement">
-                        <p data-zh="我的研究专注于人工智能和机器学习的前沿领域，特别是在计算机视觉和自然语言处理的交叉点上探索创新解决方案。我致力于开发能够理解和处理多模态信息的智能系统，推动AI技术在现实世界中的应用。" data-en="My research focuses on the cutting-edge fields of artificial intelligence and machine learning, particularly exploring innovative solutions at the intersection of computer vision and natural language processing. I am committed to developing intelligent systems that can understand and process multimodal information, advancing the application of AI technology in the real world.">我的研究专注于人工智能和机器学习的前沿领域，特别是在计算机视觉和自然语言处理的交叉点上探索创新解决方案。我致力于开发能够理解和处理多模态信息的智能系统，推动AI技术在现实世界中的应用。</p>
+                        <p data-zh="我的研究聚焦于铁路有砟道床状态的智能评估与诊断，主要围绕探地雷达、信号分析、数据驱动建模与无损检测方法展开。我尤其关注如何从复杂测量中提取稳定、可解释的结构信息，并将其转化为对轨道基础设施健康状态的可靠判断。" data-en="My research focuses on intelligent assessment and diagnosis of ballasted railway track conditions. I work primarily with Ground-Penetrating Radar, signal analysis, data-driven modeling, and non-destructive testing methods, with particular interest in extracting stable and interpretable structural information from complex measurements.">我的研究聚焦于铁路有砟道床状态的智能评估与诊断，主要围绕探地雷达、信号分析、数据驱动建模与无损检测方法展开。我尤其关注如何从复杂测量中提取稳定、可解释的结构信息，并将其转化为对轨道基础设施健康状态的可靠判断。</p>
 
-                        <p data-zh="在深度学习架构设计方面，我探索新颖的神经网络结构，以提高模型的效率和性能。我的工作涵盖了从基础理论研究到实际应用开发的全过程，包括算法优化、系统设计和实验验证。我相信，通过跨学科的合作和持续的创新，我们能够构建更加智能、可靠和可解释的AI系统。" data-en="In deep learning architecture design, I explore novel neural network structures to improve model efficiency and performance. My work spans the entire process from fundamental theoretical research to practical application development, including algorithm optimization, system design, and experimental validation. I believe that through interdisciplinary collaboration and continuous innovation, we can build more intelligent, reliable, and interpretable AI systems.">在深度学习架构设计方面，我探索新颖的神经网络结构，以提高模型的效率和性能。我的工作涵盖了从基础理论研究到实际应用开发的全过程，包括算法优化、系统设计和实验验证。我相信，通过跨学科的合作和持续的创新，我们能够构建更加智能、可靠和可解释的AI系统。</p>
+                        <p data-zh="我希望把信号分析、图神经网络建模与工程场景理解结合起来，让铁路检测不止停留在图像判读，而能够真正服务于病害识别、状态评估与维护决策。在这个过程中，我也持续关注双曲线目标识别、波形建模和现场可部署性的平衡。" data-en="I aim to connect signal analysis, graph neural networks, and engineering understanding so that railway inspection moves beyond image reading and toward practical support for defect identification, condition assessment, and maintenance decisions. In this process, I also care about the balance between hyperbola recognition, wavelet-based signal modeling, and deployment in real field conditions.">我希望把信号分析、图神经网络建模与工程场景理解结合起来，让铁路检测不止停留在图像判读，而能够真正服务于病害识别、状态评估与维护决策。在这个过程中，我也持续关注双曲线目标识别、波形建模和现场可部署性的平衡。</p>
                     </div>
                 </div>
 
                 <div class="section-block">
                     <h2 class="section-title" data-zh="研究兴趣" data-en="Research Interests">研究兴趣</h2>
                     <div class="research-interests">
-                        <span class="interest-tag" data-zh="深度学习" data-en="Deep Learning">深度学习</span>
-                        <span class="interest-tag" data-zh="计算机视觉" data-en="Computer Vision">计算机视觉</span>
-                        <span class="interest-tag" data-zh="自然语言处理" data-en="Natural Language Processing">自然语言处理</span>
-                        <span class="interest-tag" data-zh="神经网络架构" data-en="Neural Architecture">神经网络架构</span>
-                        <span class="interest-tag" data-zh="机器学习" data-en="Machine Learning">机器学习</span>
-                        <span class="interest-tag" data-zh="强化学习" data-en="Reinforcement Learning">强化学习</span>
-                        <span class="interest-tag" data-zh="多模态学习" data-en="Multimodal Learning">多模态学习</span>
-                        <span class="interest-tag" data-zh="AI安全" data-en="AI Safety">AI安全</span>
+                        <span class="interest-tag" data-zh="探地雷达" data-en="Ground-Penetrating Radar">探地雷达</span>
+                        <span class="interest-tag" data-zh="铁路有砟道床" data-en="Ballasted Track">铁路有砟道床</span>
+                        <span class="interest-tag" data-zh="双曲线回波识别" data-en="Hyperbola Recognition">双曲线回波识别</span>
+                        <span class="interest-tag" data-zh="无损检测" data-en="Non-Destructive Testing">无损检测</span>
+                        <span class="interest-tag" data-zh="图神经网络" data-en="Graph Neural Networks">图神经网络</span>
+                        <span class="interest-tag" data-zh="信号建模" data-en="Signal Modeling">信号建模</span>
                     </div>
                 </div>
 
                 <div class="section-block">
-                    <h2 class="section-title" data-zh="出版物" data-en="Publications">出版物</h2>
+                    <h2 class="section-title" data-zh="代表成果" data-en="Selected Publications">代表成果</h2>
                     <div class="publications-list">
                         <div class="publication-item">
                             <h3 class="publication-title">
-                                <a href="https://doi.org/10.1000/example1" target="_blank" data-zh="深度学习在计算机视觉中的创新应用研究" data-en="Innovative Applications of Deep Learning in Computer Vision">深度学习在计算机视觉中的创新应用研究</a>
+                                <span class="publication-title-text" data-zh="Automatic Prediction of Railway Ballast Layer Thickness Using Graph Neural Network Based on GPR Reflection Signals" data-en="Automatic Prediction of Railway Ballast Layer Thickness Using Graph Neural Network Based on GPR Reflection Signals">Automatic Prediction of Railway Ballast Layer Thickness Using Graph Neural Network Based on GPR Reflection Signals</span>
                             </h3>
-                            <p class="publication-authors" data-zh="<strong>张三</strong>，李四，王五" data-en="<strong>John Zhang</strong>, Li Si, Wang Wu"><strong>张三</strong>，李四，王五</p>
-                            <p class="publication-venue" data-zh="IEEE计算机视觉与模式识别会议 (CVPR), 2024" data-en="IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2024">IEEE计算机视觉与模式识别会议 (CVPR), 2024</p>
+                            <p class="publication-authors" data-zh="杨展 等" data-en="Zhan Yang et al.">杨展 等</p>
+                            <p class="publication-venue" data-zh="Automation in Construction，录用" data-en="Automation in Construction, accepted">Automation in Construction，录用</p>
                         </div>
 
                         <div class="publication-item">
                             <h3 class="publication-title">
-                                <a href="https://doi.org/10.1000/example2" target="_blank" data-zh="基于注意力机制的神经网络架构优化" data-en="Attention-Based Neural Network Architecture Optimization">基于注意力机制的神经网络架构优化</a>
+                                <span class="publication-title-text" data-zh="SN-1DcycleGAN: An Unsupervised Learning-Based Network for Sleeper Interference Suppression in Ballasted Track GPR Data" data-en="SN-1DcycleGAN: An Unsupervised Learning-Based Network for Sleeper Interference Suppression in Ballasted Track GPR Data">SN-1DcycleGAN: An Unsupervised Learning-Based Network for Sleeper Interference Suppression in Ballasted Track GPR Data</span>
                             </h3>
-                            <p class="publication-authors" data-zh="李四，<strong>张三</strong>，赵六" data-en="Li Si, <strong>John Zhang</strong>, Zhao Liu">李四，<strong>张三</strong>，赵六</p>
-                            <p class="publication-venue" data-zh="神经信息处理系统大会 (NeurIPS), 2023" data-en="Conference on Neural Information Processing Systems (NeurIPS), 2023">神经信息处理系统大会 (NeurIPS), 2023</p>
-                        </div>
-
-                        <div class="publication-item">
-                            <h3 class="publication-title">
-                                <a href="https://doi.org/10.1000/example3" target="_blank" data-zh="多模态学习中的跨域知识迁移方法" data-en="Cross-Domain Knowledge Transfer Methods in Multimodal Learning">多模态学习中的跨域知识迁移方法</a>
-                            </h3>
-                            <p class="publication-authors" data-zh="<strong>张三</strong>，王五，陈七" data-en="<strong>John Zhang</strong>, Wang Wu, Chen Qi"><strong>张三</strong>，王五，陈七</p>
-                            <p class="publication-venue" data-zh="人工智能促进协会会议 (AAAI), 2023" data-en="AAAI Conference on Artificial Intelligence (AAAI), 2023">人工智能促进协会会议 (AAAI), 2023</p>
-                        </div>
-
-                        <div class="publication-item">
-                            <h3 class="publication-title">
-                                <a href="https://doi.org/10.1000/example4" target="_blank" data-zh="强化学习在自动驾驶中的应用与挑战" data-en="Applications and Challenges of Reinforcement Learning in Autonomous Driving">强化学习在自动驾驶中的应用与挑战</a>
-                            </h3>
-                            <p class="publication-authors" data-zh="王五，<strong>张三</strong>，李四，孙八" data-en="Wang Wu, <strong>John Zhang</strong>, Li Si, Sun Ba">王五，<strong>张三</strong>，李四，孙八</p>
-                            <p class="publication-venue" data-zh="国际机器学习会议 (ICML), 2022" data-en="International Conference on Machine Learning (ICML), 2022">国际机器学习会议 (ICML), 2022</p>
-                        </div>
-
-                        <div class="publication-item">
-                            <h3 class="publication-title">
-                                <a href="https://doi.org/10.1000/example5" target="_blank" data-zh="自然语言处理中的预训练模型优化策略" data-en="Optimization Strategies for Pre-trained Models in Natural Language Processing">自然语言处理中的预训练模型优化策略</a>
-                            </h3>
-                            <p class="publication-authors" data-zh="<strong>张三</strong>，陈七，李四" data-en="<strong>John Zhang</strong>, Chen Qi, Li Si"><strong>张三</strong>，陈七，李四</p>
-                            <p class="publication-venue" data-zh="计算语言学协会年会 (ACL), 2022" data-en="Annual Meeting of the Association for Computational Linguistics (ACL), 2022">计算语言学协会年会 (ACL), 2022</p>
+                            <p class="publication-authors" data-zh="杨展 等" data-en="Zhan Yang et al.">杨展 等</p>
+                            <p class="publication-venue" data-zh="IEEE Transactions on Geoscience and Remote Sensing，录用" data-en="IEEE Transactions on Geoscience and Remote Sensing, accepted">IEEE Transactions on Geoscience and Remote Sensing，录用</p>
                         </div>
                     </div>
                 </div>
@@ -228,9 +219,9 @@
                 <div class="section-block">
                     <h2 class="section-title" data-zh="学术理念" data-en="Academic Philosophy">学术理念</h2>
                     <div class="philosophy-content">
-                        <p data-zh="我坚信人工智能技术应该服务于人类社会的进步与发展。在我的研究中，我始终秉持着严谨的科学态度，追求理论创新与实际应用的完美结合。我认为优秀的研究不仅要在学术上有所突破，更要能够解决现实世界中的实际问题。" data-en="I firmly believe that artificial intelligence technology should serve the progress and development of human society. In my research, I always maintain a rigorous scientific attitude, pursuing the perfect combination of theoretical innovation and practical application. I believe that excellent research should not only achieve academic breakthroughs but also solve real-world problems.">我坚信人工智能技术应该服务于人类社会的进步与发展。在我的研究中，我始终秉持着严谨的科学态度，追求理论创新与实际应用的完美结合。我认为优秀的研究不仅要在学术上有所突破，更要能够解决现实世界中的实际问题。</p>
+                        <p data-zh="我更关心研究如何真正回应工程现场的问题。对我而言，好的工作不仅要在方法上成立，也要能够在复杂、嘈杂、受约束的真实环境中保持判断力。" data-en="I care most about research that can answer real engineering questions. For me, strong work must be methodologically sound while remaining useful in complex, noisy, and constrained field environments.">我更关心研究如何真正回应工程现场的问题。对我而言，好的工作不仅要在方法上成立，也要能够在复杂、嘈杂、受约束的真实环境中保持判断力。</p>
 
-                        <p data-zh="作为一名年轻的研究者，我深知合作的重要性。我积极参与跨学科的研究项目，与来自不同背景的学者进行交流合作。我相信，通过开放的学术交流和多元化的思维碰撞，我们能够推动人工智能领域向更加广阔的方向发展。" data-en="As a young researcher, I deeply understand the importance of collaboration. I actively participate in interdisciplinary research projects and collaborate with scholars from different backgrounds. I believe that through open academic exchange and diverse thinking collisions, we can push the field of artificial intelligence towards broader development.">作为一名年轻的研究者，我深知合作的重要性。我积极参与跨学科的研究项目，与来自不同背景的学者进行交流合作。我相信，通过开放的学术交流和多元化的思维碰撞，我们能够推动人工智能领域向更加广阔的方向发展。</p>
+                        <p data-zh="我相信学术训练的价值不只在于提出新方法，也在于培养一种克制、耐心和长期迭代的工作方式。面对问题时，先看清结构，再做判断，再推进实现，这种节奏同样适用于研究与生活。" data-en="I believe the value of academic training lies not only in proposing new methods, but also in cultivating restraint, patience, and a willingness to iterate over the long term. When facing a problem, I prefer to understand its structure first, then make a judgment, and only then push toward implementation.">我相信学术训练的价值不只在于提出新方法，也在于培养一种克制、耐心和长期迭代的工作方式。面对问题时，先看清结构，再做判断，再推进实现，这种节奏同样适用于研究与生活。</p>
                     </div>
                 </div>
 
@@ -239,21 +230,11 @@
                     <div class="hobbies-container">
                         <div class="hobby-card">
                             <div class="hobby-header">
-                                <i class="fas fa-camera"></i>
-                                <h3 data-zh="摄影艺术" data-en="Photography Art">摄影艺术</h3>
-                            </div>
-                            <div class="hobby-content">
-                                <p data-zh="摄影对我来说不仅仅是一种爱好，更是一种表达方式。我热爱用镜头捕捉生活中的美好瞬间，特别专注于风景和街头摄影。通过摄影，我学会了观察光影的变化，感受不同时刻的情感色彩。我的作品曾在学校摄影展中展出，也经常在社交媒体上分享我的摄影心得。每当我举起相机的那一刻，世界仿佛变得更加生动和有意义。" data-en="Photography is not just a hobby for me, but a form of expression. I love capturing beautiful moments in life through the lens, with a particular focus on landscape and street photography. Through photography, I've learned to observe the changes in light and shadow, and feel the emotional colors of different moments. My works have been exhibited in school photography exhibitions, and I often share my photography insights on social media. Every time I raise my camera, the world seems to become more vivid and meaningful.">摄影对我来说不仅仅是一种爱好，更是一种表达方式。我热爱用镜头捕捉生活中的美好瞬间，特别专注于风景和街头摄影。通过摄影，我学会了观察光影的变化，感受不同时刻的情感色彩。我的作品曾在学校摄影展中展出，也经常在社交媒体上分享我的摄影心得。每当我举起相机的那一刻，世界仿佛变得更加生动和有意义。</p>
-                            </div>
-                        </div>
-
-                        <div class="hobby-card">
-                            <div class="hobby-header">
                                 <i class="fas fa-book"></i>
                                 <h3 data-zh="深度阅读" data-en="Deep Reading">深度阅读</h3>
                             </div>
                             <div class="hobby-content">
-                                <p data-zh="阅读是我获取知识和灵感的重要途径。我广泛阅读科技、哲学、文学和历史类作品，从《人类简史》到《深度学习》，从古典诗词到现代小说。我相信，不同领域的知识能够相互启发，为我的研究工作提供新的视角。我每年会阅读50本以上的书籍，并保持写读书笔记的习惯。阅读不仅丰富了我的知识储备，更重要的是培养了我的批判性思维和创新能力。" data-en="Reading is an important way for me to acquire knowledge and inspiration. I extensively read works in technology, philosophy, literature, and history, from 'Sapiens' to 'Deep Learning', from classical poetry to modern novels. I believe that knowledge from different fields can inspire each other and provide new perspectives for my research work. I read more than 50 books each year and maintain the habit of taking reading notes. Reading not only enriches my knowledge base, but more importantly, cultivates my critical thinking and innovation abilities.">阅读是我获取知识和灵感的重要途径。我广泛阅读科技、哲学、文学和历史类作品，从《人类简史》到《深度学习》，从古典诗词到现代小说。我相信，不同领域的知识能够相互启发，为我的研究工作提供新的视角。我每年会阅读50本以上的书籍，并保持写读书笔记的习惯。阅读不仅丰富了我的知识储备，更重要的是培养了我的批判性思维和创新能力。</p>
+                                <p data-zh="阅读对我而言更像是一种校准。技术文献让我保持对方法边界的敏感，人文与历史写作则提醒我，很多真正重要的问题都不能只用效率来衡量。" data-en="Reading works as a form of calibration for me. Technical writing keeps me alert to the limits of methods, while literature, history, and essays remind me that the most important questions cannot be judged by efficiency alone.">阅读对我而言更像是一种校准。技术文献让我保持对方法边界的敏感，人文与历史写作则提醒我，很多真正重要的问题都不能只用效率来衡量。</p>
                             </div>
                         </div>
 
@@ -263,7 +244,7 @@
                                 <h3 data-zh="长跑运动" data-en="Long-distance Running">长跑运动</h3>
                             </div>
                             <div class="hobby-content">
-                                <p data-zh="跑步是我保持身心健康的重要方式。我已经坚持长跑锻炼超过5年，完成了包括北京马拉松、上海马拉松在内的多场全程马拉松比赛。跑步教会了我坚持和毅力，也让我学会了如何在压力下保持冷静。每当研究遇到瓶颈时，我会选择去跑步，在奔跑中思考问题，往往能够获得意想不到的灵感。跑步不仅强健了我的体魄，更重要的是锻炼了我的意志力和抗压能力。" data-en="Running is an important way for me to maintain physical and mental health. I have been consistently running for over 5 years and completed multiple full marathons including Beijing Marathon and Shanghai Marathon. Running has taught me persistence and perseverance, and also how to stay calm under pressure. Whenever my research hits a bottleneck, I choose to go running, thinking about problems while running, often gaining unexpected inspiration. Running not only strengthens my physique, but more importantly, exercises my willpower and stress resistance.">跑步是我保持身心健康的重要方式。我已经坚持长跑锻炼超过5年，完成了包括北京马拉松、上海马拉松在内的多场全程马拉松比赛。跑步教会了我坚持和毅力，也让我学会了如何在压力下保持冷静。每当研究遇到瓶颈时，我会选择去跑步，在奔跑中思考问题，往往能够获得意想不到的灵感。跑步不仅强健了我的体魄，更重要的是锻炼了我的意志力和抗压能力。</p>
+                                <p data-zh="长跑让我习惯以更长的时间尺度看待问题。很多研究工作的推进并不依赖瞬间爆发，而是依赖节奏、耐力和对过程的稳定管理，这和训练本身很像。" data-en="Long-distance running keeps me comfortable with longer time scales. Research rarely advances through single bursts of effort; more often it depends on rhythm, endurance, and calm management of the process, which is why running feels so familiar to me.">长跑让我习惯以更长的时间尺度看待问题。很多研究工作的推进并不依赖瞬间爆发，而是依赖节奏、耐力和对过程的稳定管理，这和训练本身很像。</p>
                             </div>
                         </div>
 
@@ -273,46 +254,40 @@
                                 <h3 data-zh="音乐欣赏" data-en="Music Appreciation">音乐欣赏</h3>
                             </div>
                             <div class="hobby-content">
-                                <p data-zh="音乐是我生活中不可缺少的一部分。我特别喜欢古典音乐和爵士乐，从巴赫的复调音乐到比尔·埃文斯的钢琴演奏，都能让我沉浸其中。我从小学习钢琴，虽然现在主要专注于学术研究，但仍会在闲暇时弹奏一些喜欢的曲目来放松心情。音乐帮助我在紧张的研究工作中找到平衡，也培养了我对美的感知能力。我相信，音乐中的和谐与数学中的美有着相通之处。" data-en="Music is an indispensable part of my life. I particularly enjoy classical music and jazz, from Bach's polyphonic music to Bill Evans' piano performances, all of which can immerse me completely. I learned piano from childhood, and although I now mainly focus on academic research, I still play some favorite pieces in my spare time to relax. Music helps me find balance in intense research work and cultivates my perception of beauty. I believe that the harmony in music has something in common with the beauty in mathematics.">音乐是我生活中不可缺少的一部分。我特别喜欢古典音乐和爵士乐，从巴赫的复调音乐到比尔·埃文斯的钢琴演奏，都能让我沉浸其中。我从小学习钢琴，虽然现在主要专注于学术研究，但仍会在闲暇时弹奏一些喜欢的曲目来放松心情。音乐帮助我在紧张的研究工作中找到平衡，也培养了我对美的感知能力。我相信，音乐中的和谐与数学中的美有着相通之处。</p>
-                            </div>
-                        </div>
-
-                        <div class="hobby-card">
-                            <div class="hobby-header">
-                                <i class="fas fa-plane"></i>
-                                <h3 data-zh="世界探索" data-en="World Exploration">世界探索</h3>
-                            </div>
-                            <div class="hobby-content">
-                                <p data-zh="旅行让我开阔了视野，丰富了人生阅历。我已经游历过20多个国家和地区，从欧洲的古老城堡到亚洲的现代都市，从非洲的广袤草原到美洲的壮丽山川。每一次旅行都是一次学习的机会，让我了解不同的文化、历史和思维方式。我特别喜欢深度旅行，会花时间去了解当地的历史文化，与当地人交流，品尝地道的美食。旅行不仅让我放松身心，更重要的是培养了我的全球视野和跨文化交流能力。" data-en="Travel has broadened my horizons and enriched my life experiences. I have traveled to more than 20 countries and regions, from ancient castles in Europe to modern cities in Asia, from vast grasslands in Africa to magnificent mountains in America. Each trip is a learning opportunity that allows me to understand different cultures, histories, and ways of thinking. I particularly enjoy deep travel, taking time to understand local history and culture, communicate with locals, and taste authentic cuisine. Travel not only relaxes my body and mind, but more importantly, cultivates my global perspective and cross-cultural communication skills.">旅行让我开阔了视野，丰富了人生阅历。我已经游历过20多个国家和地区，从欧洲的古老城堡到亚洲的现代都市，从非洲的广袤草原到美洲的壮丽山川。每一次旅行都是一次学习的机会，让我了解不同的文化、历史和思维方式。我特别喜欢深度旅行，会花时间去了解当地的历史文化，与当地人交流，品尝地道的美食。旅行不仅让我放松身心，更重要的是培养了我的全球视野和跨文化交流能力。</p>
-                            </div>
-                        </div>
-
-                        <div class="hobby-card">
-                            <div class="hobby-header">
-                                <i class="fas fa-code"></i>
-                                <h3 data-zh="开源贡献" data-en="Open Source Contribution">开源贡献</h3>
-                            </div>
-                            <div class="hobby-content">
-                                <p data-zh="参与开源项目是我回馈社区、提升技能的重要方式。我积极维护多个机器学习相关的开源项目，包括深度学习框架的优化工具和数据处理库。通过开源贡献，我不仅提高了编程技能，还学会了如何与全球开发者协作。我相信开源精神体现了学术研究的本质——知识共享和协作创新。我的GitHub项目已经获得了数千个星标，也帮助了许多研究者和开发者解决实际问题。这种经历让我深刻理解了技术的社会价值。" data-en="Participating in open source projects is an important way for me to give back to the community and improve my skills. I actively maintain several machine learning-related open source projects, including optimization tools for deep learning frameworks and data processing libraries. Through open source contributions, I have not only improved my programming skills, but also learned how to collaborate with developers worldwide. I believe the open source spirit embodies the essence of academic research - knowledge sharing and collaborative innovation. My GitHub projects have received thousands of stars and helped many researchers and developers solve practical problems. This experience has given me a deep understanding of the social value of technology.">参与开源项目是我回馈社区、提升技能的重要方式。我积极维护多个机器学习相关的开源项目，包括深度学习框架的优化工具和数据处理库。通过开源贡献，我不仅提高了编程技能，还学会了如何与全球开发者协作。我相信开源精神体现了学术研究的本质——知识共享和协作创新。我的GitHub项目已经获得了数千个星标，也帮助了许多研究者和开发者解决实际问题。这种经历让我深刻理解了技术的社会价值。</p>
+                                <p data-zh="音乐是另一种把注意力从噪声中抽离出来的方式。我喜欢那种不急于给出答案、却能慢慢整理情绪和节奏的作品，这种经验也会反过来影响我做研究时的判断和审美。" data-en="Music gives me another way to step back from noise. I am drawn to works that do not rush to provide answers, but instead reorganize emotion and rhythm over time. That experience feeds back into both my research judgment and my sense of form.">音乐是另一种把注意力从噪声中抽离出来的方式。我喜欢那种不急于给出答案、却能慢慢整理情绪和节奏的作品，这种经验也会反过来影响我做研究时的判断和审美。</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="section-block">
-                    <h2 class="section-title" data-zh="简历下载" data-en="CV Download">简历下载</h2>
-                    <div class="cv-download">
-                        <p data-zh="如需了解更多详细信息，请下载我的完整简历。" data-en="For more detailed information, please download my complete CV.">如需了解更多详细信息，请下载我的完整简历。</p>
-                        <div class="cv-buttons">
-                            <a href="assets/cv/CV_ZhangSan_CN.pdf" class="cv-button" target="_blank" data-zh="下载中文简历" data-en="Download Chinese CV">
-                                <i class="fas fa-download"></i>
-                                <span data-zh="下载中文简历" data-en="Download Chinese CV">下载中文简历</span>
-                            </a>
-                            <a href="assets/cv/CV_JohnZhang_EN.pdf" class="cv-button" target="_blank" data-zh="下载英文简历" data-en="Download English CV">
-                                <i class="fas fa-download"></i>
-                                <span data-zh="下载英文简历" data-en="Download English CV">下载英文简历</span>
-                            </a>
+                <div class="section-block cv-download-shell">
+                    <div class="cv-download cv-download-layout">
+                        <div class="cv-download-copy">
+                            <h2 class="section-title" data-zh="简历下载" data-en="CV Download">简历下载</h2>
+                            <p class="cv-download-lead" data-zh="更多信息请下载我的完整简历。" data-en="Download my full CV for more details.">更多信息请下载我的完整简历。</p>
+                            <div class="cv-buttons cv-buttons-compact">
+                                <a href="assets/cv/简历-2025-06.pdf" class="cv-button" target="_blank" data-zh="下载中文简历" data-en="Download Chinese CV">
+                                    <i class="fas fa-download"></i>
+                                    <span data-zh="下载中文简历" data-en="Download Chinese CV">下载中文简历</span>
+                                </a>
+                                <a href="assets/cv/CV-2025-06.pdf" class="cv-button" target="_blank" data-zh="下载英文简历" data-en="Download English CV">
+                                    <i class="fas fa-download"></i>
+                                    <span data-zh="下载英文简历" data-en="Download English CV">下载英文简历</span>
+                                </a>
+                            </div>
+                            <div class="cv-ripple-scene" aria-hidden="true">
+                                <span class="cv-ripple-drop"></span>
+                                <span class="cv-ripple-surface"></span>
+                                <span class="cv-ripple-ring cv-ripple-ring--one"></span>
+                                <span class="cv-ripple-ring cv-ripple-ring--two"></span>
+                                <span class="cv-ripple-ring cv-ripple-ring--three"></span>
+                            </div>
                         </div>
+
+                        <figure class="cv-visual-panel">
+                            <img src="assets/images/about-bench-ending.jpg" alt="Bench scene in soft daylight" class="cv-visual-image">
+                            <figcaption class="cv-visual-quote">Life is a box of chocolates. You never know what you're going to get.</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -321,7 +296,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p data-zh="© 2024 张三. 保留所有权利." data-en="© 2024 John Zhang. All rights reserved.">© 2024 张三. 保留所有权利.</p>
+            <p data-zh="© 2026 杨展. 保留所有权利." data-en="© 2026 Zhan Yang. All rights reserved.">© 2026 杨展. 保留所有权利.</p>
         </div>
     </footer>
 
