@@ -10,12 +10,18 @@ const navMenu = document.querySelector('.nav-menu');
 const titleNode = document.querySelector('title[data-zh][data-en]');
 const musicToggle = document.getElementById('musicToggle');
 const siteAudio = document.getElementById('siteAudio');
-const siteAudioCandidates = [
-  'assets/audio/forrest-gump-suite.mp3',
-  'assets/audio/forrest-gump-suite.m4a',
-  'assets/audio/forrest-gump-suite.ogg',
-  'assets/audio/forrest-gump-suite.wav'
+const siteAudioPlaylist = [
+  {
+    title: 'Forrest Gump Suite',
+    sources: ['assets/audio/forrest-gump-suite.mp3']
+  },
+  {
+    title: 'Nocturne No. 2',
+    sources: ['assets/audio/nocturne-op9-no2.mp3']
+  }
 ];
+let availableAudioTracks = [];
+let currentAudioTrackIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
   initializeNavigation();
@@ -221,8 +227,8 @@ function initializeScrollEffects() {
   });
 }
 
-async function findPlayableAudioSource() {
-  for (const candidate of siteAudioCandidates) {
+async function findPlayableAudioSource(sources) {
+  for (const candidate of sources) {
     try {
       const response = await fetch(candidate, { method: 'HEAD', cache: 'no-store' });
       if (response.ok) {
@@ -236,6 +242,19 @@ async function findPlayableAudioSource() {
   return null;
 }
 
+async function loadAvailableAudioTracks() {
+  const tracks = [];
+
+  for (const track of siteAudioPlaylist) {
+    const source = await findPlayableAudioSource(track.sources);
+    if (source) {
+      tracks.push({ ...track, source });
+    }
+  }
+
+  return tracks;
+}
+
 function setMusicIcon(isPlaying) {
   const icon = musicToggle ? musicToggle.querySelector('i') : null;
   if (!icon) {
@@ -246,34 +265,67 @@ function setMusicIcon(isPlaying) {
   icon.classList.toggle('fa-pause', isPlaying);
 }
 
+function loadAudioTrack(index) {
+  if (!siteAudio || !availableAudioTracks.length) {
+    return;
+  }
+
+  currentAudioTrackIndex = (index + availableAudioTracks.length) % availableAudioTracks.length;
+  const track = availableAudioTracks[currentAudioTrackIndex];
+  siteAudio.src = track.source;
+  siteAudio.dataset.currentTrack = track.title;
+  siteAudio.load();
+}
+
+async function playSiteAudio({ allowFailure = false } = {}) {
+  if (!siteAudio || !musicToggle || siteAudio.dataset.available !== 'true') {
+    return false;
+  }
+
+  try {
+    await siteAudio.play();
+    return true;
+  } catch (error) {
+    if (!allowFailure) {
+      updateMusicToggleLabel(true, false);
+    }
+    return false;
+  }
+}
+
+async function playNextAudioTrack() {
+  if (!availableAudioTracks.length) {
+    return;
+  }
+
+  loadAudioTrack(currentAudioTrackIndex + 1);
+  await playSiteAudio({ allowFailure: true });
+}
+
 async function initializeSiteAudio() {
   if (!musicToggle || !siteAudio) {
     return;
   }
 
   updateMusicToggleLabel(false);
-  const source = await findPlayableAudioSource();
-  if (!source) {
+  availableAudioTracks = await loadAvailableAudioTracks();
+  if (!availableAudioTracks.length) {
     siteAudio.dataset.available = 'false';
     musicToggle.disabled = true;
     updateMusicToggleLabel(false);
     return;
   }
 
-  siteAudio.src = source;
-  siteAudio.loop = true;
+  siteAudio.volume = 0.72;
+  siteAudio.loop = false;
   siteAudio.dataset.available = 'true';
   musicToggle.disabled = false;
+  loadAudioTrack(0);
   updateMusicToggleLabel(true);
 
   musicToggle.addEventListener('click', async () => {
     if (siteAudio.paused) {
-      try {
-        await siteAudio.play();
-      } catch (error) {
-        updateMusicToggleLabel(false);
-        musicToggle.disabled = true;
-      }
+      await playSiteAudio();
       return;
     }
 
@@ -291,6 +343,10 @@ async function initializeSiteAudio() {
     setMusicIcon(false);
     updateMusicToggleLabel(true, false);
   });
+
+  siteAudio.addEventListener('ended', playNextAudioTrack);
+
+  await playSiteAudio({ allowFailure: true });
 }
 
 function initializeResearchWaveAnimation() {

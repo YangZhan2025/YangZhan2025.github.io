@@ -216,6 +216,41 @@ body {
   animation: musicPulse 1.8s ease-in-out infinite;
 }
 
+.construction-ribbon {
+  position: fixed;
+  top: 82px;
+  right: clamp(1rem, 4vw, 2.4rem);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.construction-ribbon span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.48rem 0.82rem;
+  border: 1px solid rgba(38, 90, 140, 0.16);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 246, 255, 0.72));
+  color: var(--secondary-color);
+  box-shadow: 0 14px 34px rgba(30, 58, 95, 0.12);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.construction-ribbon span::before {
+  content: '';
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 999px;
+  background: var(--accent-color);
+  box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.10);
+}
+
 @keyframes musicPulse {
   0%,
   100% {
@@ -1276,6 +1311,16 @@ body {
     object-position: 62% 60%;
   }
 
+  .construction-ribbon {
+    top: 76px;
+    right: 0.86rem;
+  }
+
+  .construction-ribbon span {
+    padding: 0.42rem 0.68rem;
+    font-size: 0.78rem;
+  }
+
   .research-signal-stage {
     margin: calc(-1.18 * var(--spacing-sm)) calc(-1 * var(--spacing-lg)) calc(var(--spacing-md) + 0.12rem) 0;
     min-height: 308px;
@@ -1445,6 +1490,7 @@ body {
   .navbar,
   .footer,
   .music-toggle,
+  .construction-ribbon,
   .lang-toggle,
   .hamburger {
     display: none;
