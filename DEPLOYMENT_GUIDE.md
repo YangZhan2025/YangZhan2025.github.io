@@ -144,11 +144,9 @@ You need to edit the `index.html` file to replace placeholder content:
 2. Click the edit button (pencil icon)
 3. Find and replace the following placeholders:
 
-**Personal Information Placeholders:**
-- `张三` → Your Chinese name
-- `John Zhang` → Your English name
-- `john.zhang@university.edu` → Your email address
-- Various link URLs (Google Scholar, LinkedIn, GitHub, etc.)
+**Personal Information:**
+- The published homepage now uses `Yang Zhan` / `杨展`.
+- Confirm email, academic profile links, GitHub links, CV files, and other contact details before deployment.
 
 **Education Background Placeholders:**
 - Degree information
